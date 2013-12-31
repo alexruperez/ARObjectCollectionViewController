@@ -116,10 +116,6 @@
         }
     }
     
-    if ([self.objectCollection isKindOfClass:[NSSet class]] || [self.objectCollection isKindOfClass:[NSArray class]]) {
-        return UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
     return UITableViewCellAccessoryNone;
 }
 
