@@ -1,6 +1,6 @@
 # ARObjectCollectionViewController
 
-`ARObjectCollectionViewController` is an UIViewController that can present a JSON Object, NSDictionary, NSArray, NSSet...
+`ARObjectCollectionViewController` is an UIViewController that can present a JSON NSString, JSON NSData Object, NSDictionary, NSArray, NSSet...
 
 ![ARObjectCollectionViewController screenshot](https://raw.github.com/alexruperez/ARObjectCollectionViewController/master/screenshot.png "ARObjectCollectionViewController screenshot")
 
@@ -10,7 +10,7 @@
 
 ## Installation
 
-Add the `ARObjectCollectionView/ARObjectCollectionView` subfolder to your project. There are no required libraries other than `UIKit`.
+Add the `ARObjectCollectionViewController` subfolder to your project. There are no required libraries other than `UIKit`.
 
 ## Usage
 

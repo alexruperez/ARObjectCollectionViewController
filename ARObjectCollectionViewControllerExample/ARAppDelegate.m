@@ -15,7 +15,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    ARObjectCollectionViewController *objectCollectionViewController = [[ARObjectCollectionViewController alloc] initWithObjectCollection:[[NSDictionary alloc] initWithObjectsAndKeys:@"Value 1", @"Key 1", [NSDate date], @"Key 2", [NSURL URLWithString:@"http://alexruperez.com"], @"Key 3", [NSData data], @"Key 4", @5, @"Key 5", [[NSDictionary alloc] initWithObjectsAndKeys:@"Value 1", @"Key 1", @"Value 2", @"Key 2", @"Value 3", @"Key 3", @"Value 4", @"Key 4", @"Value 5", @"Key 5", nil], @"Key 6", [NSNull null], @"Key 7", kCFNull, @"Key 8", [NSArray arrayWithObjects:@"Key 1", @2, [NSURL URLWithString:@"http://alexruperez.com"], nil], @"Key 9", [NSSet setWithObjects:@1, [NSDate date], [NSData data], nil], @"Key 10", nil]];
+    ARObjectCollectionViewController *objectCollectionViewController = [[ARObjectCollectionViewController alloc] initWithObjectCollection:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.github.com/users/alexruperez/repos"]]];
     
     [self.window setRootViewController:[[UINavigationController alloc] initWithRootViewController:objectCollectionViewController]];
     [self.window makeKeyAndVisible];

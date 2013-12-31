@@ -20,6 +20,9 @@
 - (id)initWithObjectCollection:(id)objectCollection
 {
     if (self = [super init]) {
+        if ([objectCollection isKindOfClass:[NSString class]]) {
+            objectCollection = [objectCollection dataUsingEncoding:NSUTF8StringEncoding];
+        }
         if ([objectCollection isKindOfClass:[NSData class]]) {
             NSError *error;
             id JSONObjectCollection = [NSJSONSerialization JSONObjectWithData:objectCollection options:NSJSONReadingAllowFragments error:&error];
@@ -69,11 +72,11 @@
 - (NSString *)textForIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.objectCollection isKindOfClass:[NSDictionary class]]) {
-        return [[self.objectCollection allKeys][indexPath.row] description];
+        return NSLocalizedString([[self.objectCollection allKeys][indexPath.row] description], nil);
     } else if ([self.objectCollection isKindOfClass:[NSSet class]]) {
-        return [[self.objectCollection allObjects][indexPath.row] description];
+        return NSLocalizedString([[[self.objectCollection allObjects][indexPath.row] description] stringByReplacingOccurrencesOfString:@"\n" withString:@""], nil);
     } else if ([self.objectCollection isKindOfClass:[NSArray class]]) {
-        return [self.objectCollection[indexPath.row] description];
+        return NSLocalizedString([[self.objectCollection[indexPath.row] description] stringByReplacingOccurrencesOfString:@"\n" withString:@""], nil);
     }
     
     return nil;
@@ -111,6 +114,10 @@
         if ([value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSSet class]] || [value isKindOfClass:[NSArray class]]) {
             return UITableViewCellAccessoryDisclosureIndicator;
         }
+    }
+    
+    if ([self.objectCollection isKindOfClass:[NSSet class]] || [self.objectCollection isKindOfClass:[NSArray class]]) {
+        return UITableViewCellAccessoryDisclosureIndicator;
     }
     
     return UITableViewCellAccessoryNone;
