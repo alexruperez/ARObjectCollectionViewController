@@ -7,7 +7,7 @@
 //
 
 #import "ARAppDelegate.h"
-#import "ARObjectCollectionViewController.h"
+#import "ARObjectCollectionExampleViewController.h"
 
 @implementation ARAppDelegate
 
@@ -15,9 +15,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    ARObjectCollectionViewController *objectCollectionViewController = [[ARObjectCollectionViewController alloc] initWithObjectCollection:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://api.github.com/users/alexruperez/repos"]]];
-    
-    [self.window setRootViewController:[[UINavigationController alloc] initWithRootViewController:objectCollectionViewController]];
+
+    [self.window setRootViewController:[[UINavigationController alloc] initWithRootViewController:[[ARObjectCollectionExampleViewController alloc] initWithNibName:NSStringFromClass([ARObjectCollectionExampleViewController class]) bundle:[NSBundle mainBundle]]]];
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ARObjectCollectionViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ARObjectCollectionViewController : UIViewController
 
 - (id)initWithObjectCollection:(id)objectCollection;
 
-- (void)doneButtonClicked:(id)sender;
+- (IBAction)doneButtonClicked:(id)sender;
 
 @end
