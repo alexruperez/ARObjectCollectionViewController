@@ -17,13 +17,13 @@
 
 @interface ARObjectCollectionViewController () <UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate>
 
-@property (nonatomic, strong) id objectCollection;
-@property (nonatomic, strong) UITableView *tableView;
+@property (strong, nonatomic) id objectCollection;
+@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *axisAncestorOrSelf;
 @property (strong, nonatomic) NSMutableString *selfText;
-@property (strong, nonatomic) NSMutableDictionary *root;
-@property (assign, nonatomic) NSError *error;
+@property (strong, nonatomic) NSMutableDictionary *rootXML;
 @property (assign, nonatomic) NSInteger currentLevel;
+@property (strong, nonatomic) NSURL *url;
 
 @end
 
@@ -35,6 +35,7 @@
     {
         if ([objectCollection  isKindOfClass:[NSURL class]])
         {
+            self.url = objectCollection;
             objectCollection = [NSData dataWithContentsOfURL:objectCollection];
         }
         if ([objectCollection isKindOfClass:[NSString class]])
@@ -55,7 +56,7 @@
                 [XMLParser setDelegate:self];
                 [XMLParser parse];
 
-                return  self;
+                return self;
             }
         }
         self.objectCollection = objectCollection;
@@ -220,46 +221,40 @@
     }
 }
 
+- (void)showWebViewWithXML
+{
+    [self.navigationController pushViewController:[[ARWebViewController alloc] initWithURL:self.url] animated:YES];
+}
+
 #pragma mark - NSXMLParserDelegate
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser
 {
-    ///Initialize internal objects and values
-    //Set counter for current level to root element level.
-    _currentLevel = 0;
-    //Create storage for parsing elements.
-    _axisAncestorOrSelf = [NSMutableArray new];
-    //Create object for result of parsing - the root object
-    _root = [NSMutableDictionary new];
-    //Put in the array as first the root object.
-    [_axisAncestorOrSelf addObject:_root];
-    //Create object for storing current element text value.
-    _selfText = [NSMutableString new];
+    self.currentLevel = 0;
+    self.axisAncestorOrSelf = [NSMutableArray new];
+    self.rootXML = [NSMutableDictionary new];
+    [_axisAncestorOrSelf addObject:self.rootXML];
+    self.selfText = [NSMutableString new];
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    ///Clear unused object
     [_axisAncestorOrSelf removeLastObject];
-    self.objectCollection = _root;
+    self.objectCollection = self.rootXML;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
-    ///Start processing of the current element
     _currentLevel++;
     if ([_axisAncestorOrSelf count] == _currentLevel)
     {
-        //Add dictionary for started element if it not exist.
         [_axisAncestorOrSelf addObject:[NSMutableDictionary new]];
-        //Processing a text value (if it exist) of the previous (parent) element.
         if ([_selfText length] > 0)
         {
             [AXIS_PARENT setObject:_selfText forKey:TEXT_NODE_KEY];
             _selfText = [NSMutableString new];
         }
     }
-    //Add attribute values (if it exist) to current element.
     if ([attributeDict count] != 0)
     {
         for (id key in [attributeDict allKeys])
@@ -272,7 +267,6 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    ///Processing the text value of the current element
     NSCharacterSet *characterSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     NSString *text = [string stringByTrimmingCharactersInSet: characterSet];
     [_selfText appendString:text];
@@ -280,10 +274,8 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    ///Completion processing of the current element
     if ([AXIS_SELF count] == 0)
     {
-        //If exist only text value of element - set it as element value.
         [AXIS_PARENT setObject:_selfText forKey:elementName];
         _selfText = [NSMutableString new];
     }
@@ -291,7 +283,6 @@
     {
         if ([_selfText length] > 0)
         {
-            //If exist text value of element and child elements - set it as child element value.
             [AXIS_SELF setObject:_selfText forKey:TEXT_NODE_KEY];
             _selfText = [NSMutableString new];
         }
@@ -299,15 +290,10 @@
         {
             if ([AXIS_PRECEDING_SIBLING isKindOfClass:[NSMutableArray class]])
             {
-                //If exist collection of preceding-sibling elements - add current element to collection.
                 [AXIS_PRECEDING_SIBLING addObject:AXIS_SELF];
             }
             else if ([AXIS_PRECEDING_SIBLING isKindOfClass:[NSMutableDictionary class]])
             {
-                /*
-                 If exist only one preceding-sibling element - create collection
-                 and add both (preceding-sibling and current) elements to collection.
-                 */
                 NSMutableArray *elementsArray = [NSMutableArray new];
                 [elementsArray addObjectsFromArray:@[AXIS_PRECEDING_SIBLING, AXIS_SELF]];
                 [AXIS_PARENT setObject:elementsArray forKey:elementName];
@@ -315,10 +301,8 @@
         }
         else
         {
-            //If preceding-sibling elements not exist - add current element as child element.
             [AXIS_PARENT setObject:AXIS_SELF forKey:elementName];
         }
-        //Remove current element from storage for parsing elements.
         [_axisAncestorOrSelf removeObject:AXIS_SELF];
     }
     _currentLevel--;
@@ -326,20 +310,20 @@
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
 {
-    ///Handle parse error
-    //Output in the console error.
     NSLog(@"Line:%li Column:%li - Parse Error Occurred: %@", (long)[parser lineNumber], (long)[parser columnNumber], [parseError description]);
-    //Set error prorerty pointer to parse error.
-    _error = parseError;
+    if (self.url)
+    {
+        [self performSelector:@selector(showWebViewWithXML) withObject:nil afterDelay:0.6f];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser validationErrorOccurred:(NSError *)validationError
 {
-    ///Handle validation error
-    //Output in the console error.
     NSLog(@"Line:%li Column:%li - Validation Error Occurred: %@", (long)[parser lineNumber], (long)[parser columnNumber], [validationError description]);
-    //Set error prorerty pointer to validation error.
-    _error = validationError;
+    if (self.url)
+    {
+        [self performSelector:@selector(showWebViewWithXML) withObject:nil afterDelay:0.6f];
+    }
 }
 
 @end
