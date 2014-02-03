@@ -16,7 +16,11 @@ Add the `ARObjectCollectionViewController` subfolder to your project. There are 
 
 *(See example Xcode project)*
 
-Simply `alloc`/`init` an instance of `ARObjectCollectionViewController` (for pushing) or `ARObjectCollectionModalViewController` (for presenting).
+```objectivec
+[ARObjectCollectionViewController showObjectCollection:objectCollection];
+```
+
+Or you can `alloc`/`init` an instance of `ARObjectCollectionViewController` (for pushing) or `ARObjectCollectionModalViewController` (for presenting).
 
 ```objectivec
 ARObjectCollectionViewController *objectCollectionViewController = [[ARObjectCollectionViewController alloc] initWithObjectCollection:objectCollection];

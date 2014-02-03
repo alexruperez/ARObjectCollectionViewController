@@ -28,8 +28,8 @@
 {
     if ([textField.text isKindOfClass:[NSString class]] && [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:textField.text]])
     {
-        ARObjectCollectionViewController *objectCollectionViewController = [[ARObjectCollectionViewController alloc] initWithObjectCollection:[NSURL URLWithString:textField.text]];
-        [self.navigationController pushViewController:objectCollectionViewController animated:YES];
+        [textField resignFirstResponder];
+        [ARObjectCollectionViewController showObjectCollection:[NSURL URLWithString:textField.text]];
         return YES;
     }
     return NO;

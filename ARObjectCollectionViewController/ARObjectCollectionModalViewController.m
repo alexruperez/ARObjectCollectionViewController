@@ -20,7 +20,7 @@
 {
     self.objectCollectionViewController = [[ARObjectCollectionViewController alloc] initWithObjectCollection:objectCollection];
     if (self = [super initWithRootViewController:self.objectCollectionViewController]) {
-        self.objectCollectionViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self.objectCollectionViewController action:@selector(doneButtonClicked:)];
+        self.objectCollectionViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self.objectCollectionViewController action:@selector(dismissViewController:)];
     }
     return self;
 }

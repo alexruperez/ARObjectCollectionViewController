@@ -24,10 +24,18 @@
 @property (strong, nonatomic) NSMutableDictionary *rootXML;
 @property (assign, nonatomic) NSInteger currentLevel;
 @property (strong, nonatomic) NSURL *url;
+@property (strong, nonatomic) UIWindow *window;
 
 @end
 
 @implementation ARObjectCollectionViewController
+
++ (id)showObjectCollection:(id)objectCollection
+{
+    ARObjectCollectionViewController *objectCollectionViewController = [[ARObjectCollectionViewController alloc] initWithObjectCollection:objectCollection];
+    [objectCollectionViewController show];
+    return objectCollectionViewController;
+}
 
 - (id)initWithObjectCollection:(id)objectCollection
 {
@@ -65,6 +73,20 @@
     return self;
 }
 
+- (void)show
+{
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissWindow:)];
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].origin.x, [[UIScreen mainScreen] bounds].origin.y + [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+    self.window.windowLevel = UIWindowLevelStatusBar - 1;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self];
+    [self.window makeKeyAndVisible];
+    [UIView animateWithDuration:0.4f animations:^{
+        self.window.frame = [[UIScreen mainScreen] bounds];
+    } completion:NULL];
+}
+
+
+
 - (UITableView *)tableView
 {
     if (!_tableView)
@@ -89,9 +111,19 @@
     [super viewWillAppear:animated];
 }
 
-- (IBAction)doneButtonClicked:(id)sender
+- (IBAction)dismissViewController:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)dismissWindow:(id)sender
+{
+    [UIView animateWithDuration:0.4f animations:^{
+        self.window.frame = CGRectMake(self.window.frame.origin.x, self.window.frame.origin.y + self.window.frame.size.height, self.window.frame.size.width, self.window.frame.size.height);
+    } completion:^(BOOL finished) {
+        self.window.rootViewController = nil;
+        self.window = nil;
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -113,7 +145,7 @@
     }
     else if ([self.objectCollection isKindOfClass:[NSArray class]])
     {
-        return [NSString stringWithFormat:@"%@[%ld]", self.title ? self.title : @"object", indexPath.row];
+        return [NSString stringWithFormat:@"%@[%ld]", self.title ? self.title : @"object", (long)indexPath.row];
     }
 
     return nil;

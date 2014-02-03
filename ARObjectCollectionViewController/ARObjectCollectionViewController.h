@@ -10,8 +10,12 @@
 
 @interface ARObjectCollectionViewController : UIViewController
 
++ (id)showObjectCollection:(id)objectCollection;
+
 - (id)initWithObjectCollection:(id)objectCollection;
 
-- (IBAction)doneButtonClicked:(id)sender;
+- (void)show;
+
+- (IBAction)dismissViewController:(id)sender;
 
 @end
