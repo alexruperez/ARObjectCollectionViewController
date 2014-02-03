@@ -27,7 +27,8 @@
 
 - (id)initWithURL:(NSURL *)URL {
     self.webViewController = [[ARWebViewController alloc] initWithURL:URL];
-    if (self = [super initWithRootViewController:self.webViewController]) {
+    self = [super initWithRootViewController:self.webViewController];
+    if (self) {
         UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                     target:self.webViewController
                                                                                     action:@selector(doneButtonClicked:)];

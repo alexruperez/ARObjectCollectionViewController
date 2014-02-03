@@ -7,6 +7,8 @@
 //
 
 #import "ARObjectCollectionViewController.h"
+#import "ARWebViewControllerActivityChrome.h"
+#import "ARWebViewControllerActivitySafari.h"
 #import "ARWebViewController.h"
 
 #define TEXT_NODE_KEY           @"#text"
@@ -19,12 +21,12 @@
 
 @property (strong, nonatomic) id objectCollection;
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSURL *url;
 @property (strong, nonatomic) NSMutableArray *axisAncestorOrSelf;
 @property (strong, nonatomic) NSMutableString *selfText;
 @property (strong, nonatomic) NSMutableDictionary *rootXML;
 @property (assign, nonatomic) NSInteger currentLevel;
-@property (strong, nonatomic) NSURL *url;
-@property (strong, nonatomic) UIWindow *window;
 
 @end
 
@@ -39,7 +41,8 @@
 
 - (id)initWithObjectCollection:(id)objectCollection
 {
-    if (self = [super init])
+    self = [super init];
+    if (self)
     {
         if ([objectCollection  isKindOfClass:[NSURL class]])
         {
@@ -75,17 +78,20 @@
 
 - (void)show
 {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissWindow:)];
+    [self showWithRootController:nil];
+}
+
+- (void)showWithRootController:(UINavigationController *)rootViewController
+{
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissWindow)];
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].origin.x, [[UIScreen mainScreen] bounds].origin.y + [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
     self.window.windowLevel = UIWindowLevelStatusBar - 1;
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self];
+    self.window.rootViewController = rootViewController ? rootViewController : [[UINavigationController alloc] initWithRootViewController:self];
     [self.window makeKeyAndVisible];
     [UIView animateWithDuration:0.4f animations:^{
         self.window.frame = [[UIScreen mainScreen] bounds];
     } completion:NULL];
 }
-
-
 
 - (UITableView *)tableView
 {
@@ -97,6 +103,11 @@
     }
     
     return _tableView;
+}
+
+- (id)objectCollection
+{
+    return _objectCollection;
 }
 
 - (void)loadView
@@ -111,12 +122,12 @@
     [super viewWillAppear:animated];
 }
 
-- (IBAction)dismissViewController:(id)sender
+- (IBAction)dismissViewController
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)dismissWindow:(id)sender
+- (IBAction)dismissWindow
 {
     [UIView animateWithDuration:0.4f animations:^{
         self.window.frame = CGRectMake(self.window.frame.origin.x, self.window.frame.origin.y + self.window.frame.size.height, self.window.frame.size.width, self.window.frame.size.height);
@@ -247,13 +258,14 @@
         }
         else if (![value isKindOfClass:[NSNull class]])
         {
-            UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[[value description]] applicationActivities:nil];
+            NSArray *activities = @[[ARWebViewControllerActivitySafari new], [ARWebViewControllerActivityChrome new]];
+            UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[[value description]] applicationActivities:activities];
             [self presentViewController:activityViewController animated:YES completion:NULL];
         }
     }
 }
 
-- (void)showWebViewWithXML
+- (void)showWebView
 {
     [self.navigationController pushViewController:[[ARWebViewController alloc] initWithURL:self.url] animated:YES];
 }
@@ -345,7 +357,7 @@
     NSLog(@"Line:%li Column:%li - Parse Error Occurred: %@", (long)[parser lineNumber], (long)[parser columnNumber], [parseError description]);
     if (self.url)
     {
-        [self performSelector:@selector(showWebViewWithXML) withObject:nil afterDelay:0.6f];
+        [self performSelector:@selector(showWebView) withObject:nil afterDelay:0.6f];
     }
 }
 
@@ -354,7 +366,7 @@
     NSLog(@"Line:%li Column:%li - Validation Error Occurred: %@", (long)[parser lineNumber], (long)[parser columnNumber], [validationError description]);
     if (self.url)
     {
-        [self performSelector:@selector(showWebViewWithXML) withObject:nil afterDelay:0.6f];
+        [self performSelector:@selector(showWebView) withObject:nil afterDelay:0.6f];
     }
 }
 

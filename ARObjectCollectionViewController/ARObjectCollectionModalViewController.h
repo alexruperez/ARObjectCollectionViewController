@@ -11,7 +11,13 @@
 
 @interface ARObjectCollectionModalViewController : UINavigationController
 
++ (id)showObjectCollection:(id)objectCollection;
+
 - (id)initWithObjectCollection:(id)objectCollection;
+
+- (void)show;
+
+- (id)objectCollection;
 
 @property (nonatomic, strong) UIColor *barsTintColor;
 

@@ -16,6 +16,12 @@
 
 - (void)show;
 
-- (IBAction)dismissViewController:(id)sender;
+- (void)showWithRootController:(UINavigationController *)rootViewController;
+
+- (IBAction)dismissWindow;
+
+- (IBAction)dismissViewController;
+
+- (id)objectCollection;
 
 @end
