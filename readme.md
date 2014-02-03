@@ -1,6 +1,6 @@
 # ARObjectCollectionViewController
 
-`ARObjectCollectionViewController` is an UIViewController that can present a JSON NSString, JSON NSData Object, NSDictionary, NSArray, NSSet...
+`ARObjectCollectionViewController` is an UIViewController that can present a JSON NSString, JSON NSData Object, JSON URL, XML NSData, XML URL, NSDictionary, NSArray, NSSet...
 
 ![ARObjectCollectionViewController screenshot](https://raw.github.com/alexruperez/ARObjectCollectionViewController/master/screenshot.png "ARObjectCollectionViewController screenshot")
 
