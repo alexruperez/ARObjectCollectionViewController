@@ -27,7 +27,6 @@
 @property (strong, nonatomic) NSURL *url;
 @property (strong, nonatomic) NSMutableArray *axisAncestorOrSelf;
 @property (strong, nonatomic) NSMutableString *selfText;
-@property (strong, nonatomic) NSMutableDictionary *rootXML;
 @property (assign, nonatomic) NSInteger currentLevel;
 
 @end
@@ -61,7 +60,6 @@
         }
         if ([objectCollection isKindOfClass:[NSData class]])
         {
-
             if ([UIImage imageWithData:objectCollection])
             {
                     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)objectCollection, NULL);
@@ -88,7 +86,6 @@
         }
         self.objectCollection = objectCollection;
     }
-    
     return self;
 }
 
@@ -99,14 +96,21 @@
 
 - (void)showWithRootController:(UINavigationController *)rootViewController
 {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissWindow)];
-    self.window = [[UIWindow alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].origin.x, [[UIScreen mainScreen] bounds].origin.y + [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
-    self.window.windowLevel = UIWindowLevelStatusBar - 1;
-    self.window.rootViewController = rootViewController ? rootViewController : [[UINavigationController alloc] initWithRootViewController:self];
-    [self.window makeKeyAndVisible];
-    [UIView animateWithDuration:0.4f animations:^{
-        self.window.frame = [[UIScreen mainScreen] bounds];
-    } completion:NULL];
+    if ([self.objectCollection respondsToSelector:@selector(count)])
+    {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissWindow)];
+        self.window = [[UIWindow alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].origin.x, [[UIScreen mainScreen] bounds].origin.y + [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+        self.window.windowLevel = UIWindowLevelStatusBar - 1;
+        self.window.rootViewController = rootViewController ? rootViewController : [[UINavigationController alloc] initWithRootViewController:self];
+        [self.window makeKeyAndVisible];
+        [UIView animateWithDuration:0.4f animations:^{
+            self.window.frame = [[UIScreen mainScreen] bounds];
+        } completion:NULL];
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:[[self.objectCollection class] description] message:[self.objectCollection description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
 }
 
 - (UITableView *)tableView
@@ -292,15 +296,14 @@
 {
     self.currentLevel = 0;
     self.axisAncestorOrSelf = [NSMutableArray new];
-    self.rootXML = [NSMutableDictionary new];
-    [_axisAncestorOrSelf addObject:self.rootXML];
+    self.objectCollection = [NSMutableDictionary new];
+    [_axisAncestorOrSelf addObject:self.objectCollection];
     self.selfText = [NSMutableString new];
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
     [_axisAncestorOrSelf removeLastObject];
-    self.objectCollection = self.rootXML;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
