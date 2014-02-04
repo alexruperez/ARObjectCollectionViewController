@@ -96,20 +96,23 @@
 
 - (void)showWithRootController:(UINavigationController *)rootViewController
 {
-    if ([self.objectCollection respondsToSelector:@selector(count)])
+    if (self.objectCollection)
     {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissWindow)];
-        self.window = [[UIWindow alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].origin.x, [[UIScreen mainScreen] bounds].origin.y + [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
-        self.window.windowLevel = UIWindowLevelStatusBar - 1;
-        self.window.rootViewController = rootViewController ? rootViewController : [[UINavigationController alloc] initWithRootViewController:self];
-        [self.window makeKeyAndVisible];
-        [UIView animateWithDuration:0.4f animations:^{
-            self.window.frame = [[UIScreen mainScreen] bounds];
-        } completion:NULL];
-    }
-    else
-    {
-        [[[UIAlertView alloc] initWithTitle:[[self.objectCollection class] description] message:[self.objectCollection description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        if ([self.objectCollection respondsToSelector:@selector(count)])
+        {
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissWindow)];
+            self.window = [[UIWindow alloc] initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].origin.x, [[UIScreen mainScreen] bounds].origin.y + [[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+            self.window.windowLevel = UIWindowLevelStatusBar - 1;
+            self.window.rootViewController = rootViewController ? rootViewController : [[UINavigationController alloc] initWithRootViewController:self];
+            [self.window makeKeyAndVisible];
+            [UIView animateWithDuration:0.4f animations:^{
+                self.window.frame = [[UIScreen mainScreen] bounds];
+            } completion:NULL];
+        }
+        else
+        {
+            [[[UIAlertView alloc] initWithTitle:NSStringFromClass([self.objectCollection class]) message:[self.objectCollection description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        }
     }
 }
 
