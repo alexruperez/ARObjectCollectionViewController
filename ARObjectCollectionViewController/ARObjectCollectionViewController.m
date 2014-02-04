@@ -7,6 +7,8 @@
 //
 
 #import "ARObjectCollectionViewController.h"
+
+#import <ImageIO/ImageIO.h>
 #import "ARWebViewControllerActivityChrome.h"
 #import "ARWebViewControllerActivitySafari.h"
 #import "ARWebViewController.h"
@@ -44,6 +46,10 @@
     self = [super init];
     if (self)
     {
+        if ([objectCollection  isKindOfClass:[UIImage class]])
+        {
+            objectCollection = UIImagePNGRepresentation(objectCollection);
+        }
         if ([objectCollection  isKindOfClass:[NSURL class]])
         {
             self.url = objectCollection;
@@ -55,19 +61,29 @@
         }
         if ([objectCollection isKindOfClass:[NSData class]])
         {
-            NSError *error;
-            id JSONObjectCollection = [NSJSONSerialization JSONObjectWithData:objectCollection options:NSJSONReadingAllowFragments error:&error];
-            if (!error && JSONObjectCollection)
+
+            if ([UIImage imageWithData:objectCollection])
             {
-                objectCollection = JSONObjectCollection;
+                    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)objectCollection, NULL);
+                    CFDictionaryRef imageMetaData = CGImageSourceCopyPropertiesAtIndex(source, 0, NULL);
+                    objectCollection = (__bridge NSDictionary*)imageMetaData;
             }
             else
             {
-                NSXMLParser *XMLParser = [[NSXMLParser alloc] initWithData:objectCollection];
-                [XMLParser setDelegate:self];
-                [XMLParser parse];
+                NSError *error;
+                id JSONObjectCollection = [NSJSONSerialization JSONObjectWithData:objectCollection options:NSJSONReadingAllowFragments error:&error];
+                if (!error && JSONObjectCollection)
+                {
+                    objectCollection = JSONObjectCollection;
+                }
+                else
+                {
+                    NSXMLParser *XMLParser = [[NSXMLParser alloc] initWithData:objectCollection];
+                    [XMLParser setDelegate:self];
+                    [XMLParser parse];
 
-                return self;
+                    return self;
+                }
             }
         }
         self.objectCollection = objectCollection;

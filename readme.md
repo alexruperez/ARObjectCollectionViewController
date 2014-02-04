@@ -1,6 +1,6 @@
 # ARObjectCollectionViewController
 
-`ARObjectCollectionViewController` is an UIViewController that can present a JSON NSString, JSON NSData, JSON URL, XML NSData, XML URL, RSS NSData, RSS URL, NSDictionary, NSArray, NSSet...
+`ARObjectCollectionViewController` is an UIViewController that can present a JSON NSString, JSON NSData, JSON URL, XML NSData, XML URL, RSS NSData, RSS URL, NSDictionary, NSArray, NSSet, UIImage EXIF Metadata...
 
 ![ARObjectCollectionViewController screenshot](https://raw.github.com/alexruperez/ARObjectCollectionViewController/master/screenshot.png "ARObjectCollectionViewController screenshot")
 
@@ -25,3 +25,7 @@ Or you can `alloc`/`init` an instance of `ARObjectCollectionViewController` (for
 ```objectivec
 ARObjectCollectionViewController *objectCollectionViewController = [[ARObjectCollectionViewController alloc] initWithObjectCollection:objectCollection];
 ```
+
+## Thanks
+
+[@samvermette](https://github.com/samvermette)/[#SVWebViewController](https://github.com/samvermette/SVWebViewController)
