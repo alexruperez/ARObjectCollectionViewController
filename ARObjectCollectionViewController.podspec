@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "ARObjectCollectionViewController"
   s.version      = "1.0.1"
-  s.summary      = "UIViewController subclass that can present a JSON NSString, JSON NSData, JSON URL, XML NSData, XML URL, RSS NSData, RSS URL, NSDictionary, NSArray, NSSet, UIImage EXIF Metadata..."
+  s.summary      = "Can present a JSON NSString, JSON NSData, JSON URL, XML NSData, XML URL, RSS NSData, RSS URL, NSDictionary, NSArray, NSSet, EXIF Metadata..."
   s.homepage     = "https://github.com/alexruperez/ARObjectCollectionViewController"
   s.screenshots  = "https://raw.githubusercontent.com/alexruperez/ARObjectCollectionViewController/master/screenshot.png"
   s.license      = "MIT"
