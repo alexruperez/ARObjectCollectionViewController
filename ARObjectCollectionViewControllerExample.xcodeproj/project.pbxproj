@@ -7,71 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36CCCF40D2FCD3A2C519748E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0853D380C0D216AB25DCB3C5 /* libPods.a */; };
 		D509201B1871F1F500CD8621 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D509201A1871F1F500CD8621 /* Foundation.framework */; };
 		D509201D1871F1F500CD8621 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D509201C1871F1F500CD8621 /* CoreGraphics.framework */; };
 		D509201F1871F1F500CD8621 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D509201E1871F1F500CD8621 /* UIKit.framework */; };
-		D5318D2A189FBC380055A4E7 /* ARWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5318D0D189FBC380055A4E7 /* ARWebViewController.strings */; };
-		D5318D2B189FBC380055A4E7 /* ARModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5318D15189FBC380055A4E7 /* ARModalWebViewController.m */; };
-		D5318D2C189FBC380055A4E7 /* ARWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D5318D16189FBC380055A4E7 /* ARWebViewController.bundle */; };
-		D5318D2D189FBC380055A4E7 /* ARWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5318D18189FBC380055A4E7 /* ARWebViewController.m */; };
-		D5318D2E189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = D5318D1B189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad.png */; };
-		D5318D2F189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5318D1C189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad@2x.png */; };
-		D5318D30189FBC380055A4E7 /* ARWebViewControllerActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = D5318D1E189FBC380055A4E7 /* ARWebViewControllerActivityChrome.m */; };
-		D5318D31189FBC380055A4E7 /* ARWebViewControllerActivityChrome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5318D1F189FBC380055A4E7 /* ARWebViewControllerActivityChrome@2x.png */; };
-		D5318D32189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = D5318D21189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad.png */; };
-		D5318D33189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5318D22189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad@2x.png */; };
-		D5318D34189FBC380055A4E7 /* ARWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = D5318D24189FBC380055A4E7 /* ARWebViewControllerActivitySafari.m */; };
-		D5318D35189FBC380055A4E7 /* ARWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5318D25189FBC380055A4E7 /* ARWebViewControllerActivitySafari@2x.png */; };
-		D5318D36189FBC380055A4E7 /* ARWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = D5318D27189FBC380055A4E7 /* ARWebViewControllerActivity.m */; };
 		D56D762118731B3700171277 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D761F18731B3700171277 /* main.m */; };
 		D56D762518731B4A00171277 /* ARAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D762318731B4A00171277 /* ARAppDelegate.m */; };
 		D56D762618731B4A00171277 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D56D762418731B4A00171277 /* Images.xcassets */; };
-		D56D762C18731B8F00171277 /* ARObjectCollectionModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D762918731B8F00171277 /* ARObjectCollectionModalViewController.m */; };
-		D56D762D18731B8F00171277 /* ARObjectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56D762B18731B8F00171277 /* ARObjectCollectionViewController.m */; };
 		D5F51C2B189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F51C29189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.m */; };
 		D5F51C2C189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5F51C2A189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0853D380C0D216AB25DCB3C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		61FC8226653732627BA95598 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		982004291D46F97AA069461C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D50920171871F1F500CD8621 /* ARObjectCollectionViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARObjectCollectionViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D509201A1871F1F500CD8621 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D509201C1871F1F500CD8621 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D509201E1871F1F500CD8621 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D5318D0E189FBC380055A4E7 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/ARWebViewController.strings; sourceTree = "<group>"; };
-		D5318D0F189FBC380055A4E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ARWebViewController.strings; sourceTree = "<group>"; };
-		D5318D10189FBC380055A4E7 /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/ARWebViewController.strings"; sourceTree = "<group>"; };
-		D5318D11189FBC380055A4E7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ARWebViewController.strings; sourceTree = "<group>"; };
-		D5318D12189FBC380055A4E7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ARWebViewController.strings; sourceTree = "<group>"; };
-		D5318D13189FBC380055A4E7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/ARWebViewController.strings; sourceTree = "<group>"; };
-		D5318D14189FBC380055A4E7 /* ARModalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ARModalWebViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D5318D15189FBC380055A4E7 /* ARModalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ARModalWebViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D5318D16189FBC380055A4E7 /* ARWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ARWebViewController.bundle; sourceTree = "<group>"; };
-		D5318D17189FBC380055A4E7 /* ARWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ARWebViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D5318D18189FBC380055A4E7 /* ARWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ARWebViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D5318D1B189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ARWebViewControllerActivityChrome-iPad.png"; sourceTree = "<group>"; };
-		D5318D1C189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ARWebViewControllerActivityChrome-iPad@2x.png"; sourceTree = "<group>"; };
-		D5318D1D189FBC380055A4E7 /* ARWebViewControllerActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ARWebViewControllerActivityChrome.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D5318D1E189FBC380055A4E7 /* ARWebViewControllerActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ARWebViewControllerActivityChrome.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D5318D1F189FBC380055A4E7 /* ARWebViewControllerActivityChrome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ARWebViewControllerActivityChrome@2x.png"; sourceTree = "<group>"; };
-		D5318D21189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ARWebViewControllerActivitySafari-iPad.png"; sourceTree = "<group>"; };
-		D5318D22189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ARWebViewControllerActivitySafari-iPad@2x.png"; sourceTree = "<group>"; };
-		D5318D23189FBC380055A4E7 /* ARWebViewControllerActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ARWebViewControllerActivitySafari.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D5318D24189FBC380055A4E7 /* ARWebViewControllerActivitySafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ARWebViewControllerActivitySafari.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D5318D25189FBC380055A4E7 /* ARWebViewControllerActivitySafari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ARWebViewControllerActivitySafari@2x.png"; sourceTree = "<group>"; };
-		D5318D26189FBC380055A4E7 /* ARWebViewControllerActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ARWebViewControllerActivity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		D5318D27189FBC380055A4E7 /* ARWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ARWebViewControllerActivity.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		D5318D28189FBC380055A4E7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ARWebViewController.strings"; sourceTree = "<group>"; };
-		D5318D29189FBC380055A4E7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/ARWebViewController.strings"; sourceTree = "<group>"; };
 		D56D761D18731B3700171277 /* ARObjectCollectionViewControllerExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ARObjectCollectionViewControllerExample-Info.plist"; path = "ARObjectCollectionViewControllerExample/ARObjectCollectionViewControllerExample-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D56D761E18731B3700171277 /* ARObjectCollectionViewControllerExample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ARObjectCollectionViewControllerExample-Prefix.pch"; path = "ARObjectCollectionViewControllerExample/ARObjectCollectionViewControllerExample-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D56D761F18731B3700171277 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ARObjectCollectionViewControllerExample/main.m; sourceTree = SOURCE_ROOT; };
 		D56D762218731B4A00171277 /* ARAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARAppDelegate.h; path = ARObjectCollectionViewControllerExample/ARAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		D56D762318731B4A00171277 /* ARAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARAppDelegate.m; path = ARObjectCollectionViewControllerExample/ARAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		D56D762418731B4A00171277 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ARObjectCollectionViewControllerExample/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		D56D762818731B8F00171277 /* ARObjectCollectionModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARObjectCollectionModalViewController.h; sourceTree = "<group>"; };
-		D56D762918731B8F00171277 /* ARObjectCollectionModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARObjectCollectionModalViewController.m; sourceTree = "<group>"; };
-		D56D762A18731B8F00171277 /* ARObjectCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARObjectCollectionViewController.h; sourceTree = "<group>"; };
-		D56D762B18731B8F00171277 /* ARObjectCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARObjectCollectionViewController.m; sourceTree = "<group>"; };
 		D5F51C28189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARObjectCollectionExampleViewController.h; path = ARObjectCollectionViewControllerExample/ARObjectCollectionExampleViewController.h; sourceTree = SOURCE_ROOT; };
 		D5F51C29189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARObjectCollectionExampleViewController.m; path = ARObjectCollectionViewControllerExample/ARObjectCollectionExampleViewController.m; sourceTree = SOURCE_ROOT; };
 		D5F51C2A189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ARObjectCollectionExampleViewController.xib; path = ARObjectCollectionViewControllerExample/ARObjectCollectionExampleViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -85,18 +45,29 @@
 				D509201D1871F1F500CD8621 /* CoreGraphics.framework in Frameworks */,
 				D509201F1871F1F500CD8621 /* UIKit.framework in Frameworks */,
 				D509201B1871F1F500CD8621 /* Foundation.framework in Frameworks */,
+				36CCCF40D2FCD3A2C519748E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2EBAAB0631F02449B921639 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				982004291D46F97AA069461C /* Pods.debug.xcconfig */,
+				61FC8226653732627BA95598 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D509200E1871F1F400CD8621 = {
 			isa = PBXGroup;
 			children = (
 				D50920201871F1F500CD8621 /* ARObjectCollectionViewControllerExample */,
 				D50920191871F1F500CD8621 /* Frameworks */,
 				D50920181871F1F500CD8621 /* Products */,
+				A2EBAAB0631F02449B921639 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +85,7 @@
 				D509201A1871F1F500CD8621 /* Foundation.framework */,
 				D509201C1871F1F500CD8621 /* CoreGraphics.framework */,
 				D509201E1871F1F500CD8621 /* UIKit.framework */,
+				0853D380C0D216AB25DCB3C5 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,7 +93,6 @@
 		D50920201871F1F500CD8621 /* ARObjectCollectionViewControllerExample */ = {
 			isa = PBXGroup;
 			children = (
-				D56D762718731B8F00171277 /* ARObjectCollectionViewController */,
 				D56D762218731B4A00171277 /* ARAppDelegate.h */,
 				D56D762318731B4A00171277 /* ARAppDelegate.m */,
 				D5F51C28189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.h */,
@@ -144,67 +115,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D5318D0C189FBC380055A4E7 /* ARWebViewController */ = {
-			isa = PBXGroup;
-			children = (
-				D5318D0D189FBC380055A4E7 /* ARWebViewController.strings */,
-				D5318D14189FBC380055A4E7 /* ARModalWebViewController.h */,
-				D5318D15189FBC380055A4E7 /* ARModalWebViewController.m */,
-				D5318D16189FBC380055A4E7 /* ARWebViewController.bundle */,
-				D5318D17189FBC380055A4E7 /* ARWebViewController.h */,
-				D5318D18189FBC380055A4E7 /* ARWebViewController.m */,
-				D5318D19189FBC380055A4E7 /* UIActivities */,
-			);
-			path = ARWebViewController;
-			sourceTree = "<group>";
-		};
-		D5318D19189FBC380055A4E7 /* UIActivities */ = {
-			isa = PBXGroup;
-			children = (
-				D5318D1A189FBC380055A4E7 /* Chrome */,
-				D5318D20189FBC380055A4E7 /* Safari */,
-				D5318D26189FBC380055A4E7 /* ARWebViewControllerActivity.h */,
-				D5318D27189FBC380055A4E7 /* ARWebViewControllerActivity.m */,
-			);
-			path = UIActivities;
-			sourceTree = "<group>";
-		};
-		D5318D1A189FBC380055A4E7 /* Chrome */ = {
-			isa = PBXGroup;
-			children = (
-				D5318D1B189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad.png */,
-				D5318D1C189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad@2x.png */,
-				D5318D1D189FBC380055A4E7 /* ARWebViewControllerActivityChrome.h */,
-				D5318D1E189FBC380055A4E7 /* ARWebViewControllerActivityChrome.m */,
-				D5318D1F189FBC380055A4E7 /* ARWebViewControllerActivityChrome@2x.png */,
-			);
-			path = Chrome;
-			sourceTree = "<group>";
-		};
-		D5318D20189FBC380055A4E7 /* Safari */ = {
-			isa = PBXGroup;
-			children = (
-				D5318D21189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad.png */,
-				D5318D22189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad@2x.png */,
-				D5318D23189FBC380055A4E7 /* ARWebViewControllerActivitySafari.h */,
-				D5318D24189FBC380055A4E7 /* ARWebViewControllerActivitySafari.m */,
-				D5318D25189FBC380055A4E7 /* ARWebViewControllerActivitySafari@2x.png */,
-			);
-			path = Safari;
-			sourceTree = "<group>";
-		};
-		D56D762718731B8F00171277 /* ARObjectCollectionViewController */ = {
-			isa = PBXGroup;
-			children = (
-				D5318D0C189FBC380055A4E7 /* ARWebViewController */,
-				D56D762818731B8F00171277 /* ARObjectCollectionModalViewController.h */,
-				D56D762918731B8F00171277 /* ARObjectCollectionModalViewController.m */,
-				D56D762A18731B8F00171277 /* ARObjectCollectionViewController.h */,
-				D56D762B18731B8F00171277 /* ARObjectCollectionViewController.m */,
-			);
-			path = ARObjectCollectionViewController;
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,9 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D509204C1871F1F500CD8621 /* Build configuration list for PBXNativeTarget "ARObjectCollectionViewControllerExample" */;
 			buildPhases = (
+				E0FDDED1CA636C4505DBD8FB /* Check Pods Manifest.lock */,
 				D50920131871F1F500CD8621 /* Sources */,
 				D50920141871F1F500CD8621 /* Frameworks */,
 				D50920151871F1F500CD8621 /* Resources */,
+				8E2B8AFCA27DC89C56AC9A49 /* Embed Pods Frameworks */,
+				AE782FA48F6B695F8AE319D8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,58 +178,73 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5318D2F189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				D56D762618731B4A00171277 /* Images.xcassets in Resources */,
-				D5318D35189FBC380055A4E7 /* ARWebViewControllerActivitySafari@2x.png in Resources */,
-				D5318D2E189FBC380055A4E7 /* ARWebViewControllerActivityChrome-iPad.png in Resources */,
-				D5318D2A189FBC380055A4E7 /* ARWebViewController.strings in Resources */,
-				D5318D32189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad.png in Resources */,
-				D5318D31189FBC380055A4E7 /* ARWebViewControllerActivityChrome@2x.png in Resources */,
 				D5F51C2C189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.xib in Resources */,
-				D5318D33189FBC380055A4E7 /* ARWebViewControllerActivitySafari-iPad@2x.png in Resources */,
-				D5318D2C189FBC380055A4E7 /* ARWebViewController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8E2B8AFCA27DC89C56AC9A49 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE782FA48F6B695F8AE319D8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0FDDED1CA636C4505DBD8FB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D50920131871F1F500CD8621 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D56D762D18731B8F00171277 /* ARObjectCollectionViewController.m in Sources */,
-				D56D762C18731B8F00171277 /* ARObjectCollectionModalViewController.m in Sources */,
 				D56D762118731B3700171277 /* main.m in Sources */,
 				D5F51C2B189FCA9400FDE0DD /* ARObjectCollectionExampleViewController.m in Sources */,
-				D5318D2B189FBC380055A4E7 /* ARModalWebViewController.m in Sources */,
-				D5318D2D189FBC380055A4E7 /* ARWebViewController.m in Sources */,
 				D56D762518731B4A00171277 /* ARAppDelegate.m in Sources */,
-				D5318D30189FBC380055A4E7 /* ARWebViewControllerActivityChrome.m in Sources */,
-				D5318D34189FBC380055A4E7 /* ARWebViewControllerActivitySafari.m in Sources */,
-				D5318D36189FBC380055A4E7 /* ARWebViewControllerActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		D5318D0D189FBC380055A4E7 /* ARWebViewController.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D5318D0E189FBC380055A4E7 /* da */,
-				D5318D0F189FBC380055A4E7 /* en */,
-				D5318D10189FBC380055A4E7 /* es-ES */,
-				D5318D11189FBC380055A4E7 /* es */,
-				D5318D12189FBC380055A4E7 /* fr */,
-				D5318D13189FBC380055A4E7 /* ja */,
-				D5318D28189FBC380055A4E7 /* zh-Hans */,
-				D5318D29189FBC380055A4E7 /* zh-Hant */,
-			);
-			name = ARWebViewController.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D509204A1871F1F500CD8621 /* Debug */ = {
@@ -395,6 +323,7 @@
 		};
 		D509204D1871F1F500CD8621 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 982004291D46F97AA069461C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -408,6 +337,7 @@
 		};
 		D509204E1871F1F500CD8621 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61FC8226653732627BA95598 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

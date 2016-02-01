@@ -7,7 +7,7 @@
 //
 
 #import "ARObjectCollectionExampleViewController.h"
-#import "ARObjectCollectionViewController.h"
+#import <ARObjectCollectionViewController/ARObjectCollectionViewController.h>
 
 @interface ARObjectCollectionExampleViewController ()
 
